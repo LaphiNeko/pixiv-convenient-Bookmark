@@ -13,7 +13,7 @@ var change=0;
 
 // 创建悬浮按钮
 var bookmarkButton = document.createElement('button');
-bookmarkButton.innerHTML = '收藏/取消收藏';
+bookmarkButton.innerHTML = '❤️ / 🤍';
 bookmarkButton.style.position = 'fixed';
 bookmarkButton.style.right = '20px';
 bookmarkButton.style.bottom = '100px';

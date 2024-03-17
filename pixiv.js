@@ -2,7 +2,7 @@
 // @name         Pixiv 悬浮收藏按钮脚本
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  在Pixiv作品详情页面显示一个悬浮的收藏按钮，并确保信息成功提交后跳转回原作品详情页面
+// @description  在Pixiv作品详情页面创建一个能快速选择收藏标签并跳转回去的按钮
 // @author       LaphiNeko
 // @match        https://www.pixiv.net/*
 // @grant        none

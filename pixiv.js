@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Pixiv 悬浮收藏按钮脚本
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  在Pixiv作品收藏跳转优化
 // @author       LaphiNeko
 // @match        https://www.pixiv.net/*
@@ -54,8 +54,20 @@ bookmarkButton.addEventListener('mouseout', () => {
 // 添加按钮到页面
 
 bookmarkButton.addEventListener('click', function() {
-    var illustID = window.location.pathname.split('/').pop();
-    window.open('https://www.pixiv.net/bookmark_add.php?type=illust&illust_id=' + illustID, '_blank');
+    var illustID='';
+    if (window.location.pathname.includes('novel')) {
+        // 获取完整的URL（包括查询参数）
+        const url = window.location.href;
+        // 使用URLSearchParams来获取id参数
+        const params = new URLSearchParams(url.split('?')[1] || '');
+        illustID = params.get('id') || '';
+        // 如果有#号，去除#后面的部分
+        illustID = illustID.split('#')[0];
+        window.open('https://www.pixiv.net/novel/bookmark_add.php?id=' + illustID, '_blank');
+    } else {
+        illustID = window.location.pathname.split('/').pop();
+        window.open('https://www.pixiv.net/bookmark_add.php?type=illust&illust_id=' + illustID, '_blank');
+    }
 });
 document.body.appendChild(bookmarkButton);
 
